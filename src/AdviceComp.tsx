@@ -17,12 +17,12 @@ const AdviceComp = () => {
   };
 
   useEffect(() => {
-    const changeText = async () => {
+    const getText = async () => {
       const adviceInfo = await fetchData();
       setAdvice(adviceInfo.slip.advice);
     };
 
-    changeText();
+    getText();
   }, []);
 
   return (
