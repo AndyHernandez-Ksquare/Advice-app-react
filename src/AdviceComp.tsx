@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./AdviceComp.css";
+import twitterLogo from "./images/twitterLogo.png";
 
 type Data = {
   slip: {
@@ -31,6 +32,11 @@ const AdviceComp = () => {
           <p className="text"> {advice}</p>
         </blockquote>
         <section className="button-container">
+          <a target="_blank" href="">
+            <figure>
+              <img className="twitter" src={twitterLogo} alt="" />
+            </figure>
+          </a>
           <button
             onClick={async () => {
               const newAdvice = await fetchData();
