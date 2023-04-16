@@ -8,15 +8,18 @@ type Data = {
   };
 };
 const AdviceComp = () => {
+  // State to store the advice text
   const [advice, setAdvice] = useState("");
-  const [twitterLink, setTwitterLink] = useState("");
+  const [reFetch, setReFetch] = useState(0);
 
+  // Function to get the data
   const fetchData = async (): Promise<Data> => {
     const response = await fetch("https://api.adviceslip.com/advice");
     const data = await response.json();
     return data;
   };
 
+  // Set the data on first render and whenever the reFetch state changes
   useEffect(() => {
     const getText = async () => {
       const adviceInfo = await fetchData();
@@ -24,7 +27,7 @@ const AdviceComp = () => {
     };
 
     getText();
-  }, []);
+  }, [reFetch]);
 
   return (
     <section className="container">
@@ -44,8 +47,8 @@ const AdviceComp = () => {
           </a>
           <button
             onClick={async () => {
-              const newAdvice = await fetchData();
-              setAdvice(newAdvice.slip.advice);
+              // Change the reFetch value to trigger the useEffect hook
+              setReFetch(reFetch + 1);
             }}
             className="another-quote"
           >
