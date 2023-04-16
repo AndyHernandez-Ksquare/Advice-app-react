@@ -23,9 +23,25 @@ const AdviceComp = () => {
 
     changeText();
   }, []);
+
   return (
     <section className="container">
-      <section className="card">{advice}</section>
+      <section className="card">
+        <blockquote cite="unknown">
+          <p className="text"> {advice}</p>
+        </blockquote>
+        <section className="button-container">
+          <button
+            onClick={async () => {
+              const newAdvice = await fetchData();
+              setAdvice(newAdvice.slip.advice);
+            }}
+            className="another-quote"
+          >
+            Another one please
+          </button>
+        </section>
+      </section>
     </section>
   );
 };
