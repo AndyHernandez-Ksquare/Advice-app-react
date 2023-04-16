@@ -44,3 +44,15 @@
   color: #19a7ce;
   width: 2rem;
 }
+
+@media (max-width: 400px) {
+  .card {
+    gap: 2rem;
+    height: 20rem;
+  }
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
