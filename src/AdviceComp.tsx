@@ -9,6 +9,7 @@ type Data = {
 };
 const AdviceComp = () => {
   const [advice, setAdvice] = useState("");
+  const [twitterLink, setTwitterLink] = useState("");
 
   const fetchData = async (): Promise<Data> => {
     const response = await fetch("https://api.adviceslip.com/advice");
@@ -32,7 +33,11 @@ const AdviceComp = () => {
           <p className="text"> {advice}</p>
         </blockquote>
         <section className="button-container">
-          <a target="_blank" href="">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={`https://twitter.com/intent/tweet?text=${advice}`}
+          >
             <figure>
               <img className="twitter" src={twitterLogo} alt="" />
             </figure>
