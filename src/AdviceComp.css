@@ -19,6 +19,10 @@
   background-color: white;
 }
 
+.text {
+  height: 3rem;
+}
+
 .another-quote {
   padding: 0.6rem 2rem;
   color: white;
@@ -26,7 +30,17 @@
   border: none;
   border-radius: 5px;
 }
-
+.button-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
 .another-quote:hover {
   cursor: pointer;
+}
+
+.twitter {
+  color: #19a7ce;
+  width: 2rem;
 }
